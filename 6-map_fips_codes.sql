@@ -15,3 +15,7 @@ FROM city_fips JOIN county_city_fips ON city_state_name LIKE  '%' || city || '%'
 
 DROP TABLE city_fips;
 DROP TABLE county_city_fips;
+
+ALTER TABLE fips_map
+ADD CONSTRAINT fips_map_pkey 
+PRIMARY KEY (state_abb, city, county_fips, city_fips);

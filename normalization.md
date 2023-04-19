@@ -56,3 +56,16 @@ We have the following functional dependencies:
 `obesity_data_cleaned` is already in 1NF, because every value is a scalar value. There are no lists.
 
 `obesity_data_cleaned` is not in 2NF. FD 3 shows that `state_abb` and `city` do not depend on the entire primary key (both `year` and `city_fips`). To fix this, we must move `state_abb` and `city` to a new table.
+
+We end up with the following relations:
+
+ 1. {`year`, `city_fips`, `obesity_percentage`, `low_conf_limit`, `high_conf_limit`, `population`}
+ 2. {`city_fips`, `state_abb`, `city`}
+
+With the same FDs listed above.
+
+These two relations are now in 2NF, because all non-key attributes depend on the entirety of the relevant key.
+
+`obesity_data_cleaned` is already in 3NF, because there are no non-key attributes that depend on other non-key attributes (and thus, no attributes that are transitively dependent on the key).
+
+`obesity_data_cleaned` is already in BCNF, because every functional dependency of R1 and R2 depends on the entirety of the relevant superkey.

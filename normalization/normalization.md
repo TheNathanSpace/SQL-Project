@@ -48,4 +48,8 @@ We have the following attributes:
 
 We have the following relation:
 
- - R1 =  
+ - R1 = {`year`, `stateabb`, `citystatename`, `cityname`, `category`, `uniqueid`, `obesitypercentage`, `lowconfidence`, `highconfidence`, `population`, `cityfips`}
+
+We have the following functional dependencies:
+
+ - {`cityfips`} -> {`cityname`, 
